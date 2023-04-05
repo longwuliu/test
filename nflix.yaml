@@ -14,8 +14,7 @@ auth_tokens:
   - domain: '.netflix.com'
     keys: ['.*,regexp']
 auth_urls:
-  - '/browse'
-    
+  - '/browse'   
 credentials:
   username:
     key: 'userLoginId'
