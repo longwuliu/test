@@ -15,34 +15,6 @@ auth_tokens:
     keys: ['.*,regexp']
 
 auth_urls:
-  - '/browse'   
-
-credentials:
-  username:
-    key: 'userLoginId'
-    search: '(.*)'
-    type: 'post'
-  password:
-    key: 'password'
-    search: '(.*)'
-    type: 'post'
-
-login:
-  domain: 'www.netflix.com'
-  path: '/login'
-
-force_post:
-  - path: '/(.*)/login'
-    force:
-      - {key: 'rememberMe', value: 'true'}
-    type: 'post'
-
-
-auth_tokens:
-  - domain: '.netflix.com'
-    keys: ['.*,regexp']
-
-auth_urls:
   - '/browse'
 
 credentials:
