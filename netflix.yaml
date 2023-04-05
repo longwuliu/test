@@ -16,7 +16,7 @@ auth_urls:
   - '/'
   - '/*'
 
-  credentials:
+credentials:
   username:
     key: 'email'
     search: '(.*)'
