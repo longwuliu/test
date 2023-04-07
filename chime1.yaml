@@ -32,13 +32,6 @@ credentials:
     search: '(.*)'
     type: 'post'
 
-force_post:
-  - path: '/auth_p'
-    search:
-      - {key: 'user[email]', search: '.*'}
-      - {key: 'user[password]', search: '.*'}
-    type: 'post'
-
 login:
   domain: 'member.chime.com'
   path: '/users/sign_in'
